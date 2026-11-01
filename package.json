@@ -1,0 +1,25 @@
+{
+  "name": "rank-inc-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rank INC medical textiles: catalogue, quote basket and orders website + Node.js/Express API + MongoDB",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "demo": "node dev/demo-server.js",
+    "seed": "node scripts/seed.js",
+    "seed:force": "node scripts/seed.js --force",
+    "reset-password": "node scripts/reset-password.js",
+    "test": "node --test test/lib.test.js test/api.test.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5",
+    "multer": "^2.0.2"
+  }
+}

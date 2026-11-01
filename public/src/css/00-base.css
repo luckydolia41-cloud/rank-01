@@ -1,0 +1,75 @@
+/* ============ Rank INC — design tokens ============
+   Clean retail layout for a medical-textile manufacturer: white canvas, navy ink,
+   the brand's theatre green for actions, soft grey panels behind product photos.
+   One family (Manrope) at clear weights. */
+:root{
+  color-scheme:light;
+  --paper:#FFFFFF;
+  --surface:#FFFFFF;
+  --soft:#F4F6F6;           /* panels behind product photos, alternate sections */
+  --sunk:#EBEFEF;
+  --ink:#0F1D2B;
+  --ink-2:#4A5866;
+  --ink-3:#7A8793;
+  --line:#E2E7E9;
+  --line-2:#CBD4D7;
+  --primary:var(--bp,#1F5C52);
+  --on-primary:#FFFFFF;
+  --accent:var(--ba,#8FB3CC);
+  --primary-soft:color-mix(in srgb,var(--primary) 8%,var(--surface));
+  --primary-line:color-mix(in srgb,var(--primary) 28%,var(--surface));
+  --accent-soft:color-mix(in srgb,var(--accent) 24%,var(--surface));
+  --ok:#1E7A4C;--warn:#9A5B00;--bad:#B3261E;--wa:#1C9B4F;
+  --r-s:6px;--r:10px;--r-l:16px;--r-xl:22px;
+  --sh-card:0 14px 34px -18px rgba(15,29,43,.28);
+  --sh-pop:0 24px 60px -18px rgba(15,29,43,.32),0 2px 8px rgba(15,29,43,.08);
+  --f:"Manrope",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --wrap:1320px;--gut:clamp(16px,3.4vw,40px);
+  --hdr:72px;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#0D161C;--surface:#121E25;--soft:#17252D;--sunk:#0A1217;--ink:#E6EDEF;--ink-2:#A8B6BD;--ink-3:#7D8E97;
+  --line:#22333B;--line-2:#31444D;--primary:color-mix(in srgb,var(--bp,#1F5C52) 55%,#fff);--on-primary:#062019;--accent:color-mix(in srgb,var(--ba,#8FB3CC) 80%,#000);
+  --sh-card:0 14px 34px -18px rgba(0,0,0,.7);--sh-pop:0 24px 60px -18px rgba(0,0,0,.7);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--hdr) + 16px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--f);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+img,svg,video{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3,h4{margin:0;font-weight:750;line-height:1.15;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+[hidden]{display:none!important}
+:focus-visible{outline:2.5px solid var(--primary);outline-offset:2px;border-radius:4px}
+::selection{background:var(--accent-soft);color:var(--ink)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:var(--r);text-decoration:none}
+.skip:focus{top:12px}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.muted{color:var(--ink-2)}
+.small{font-size:.875rem}
+.num{font-variant-numeric:tabular-nums}
+
+/* type scale */
+.d1{font-size:clamp(2.1rem,4.4vw,3.6rem);font-weight:800;line-height:1.06;letter-spacing:-.035em}
+.d2{font-size:clamp(1.55rem,2.6vw,2.2rem);font-weight:800;line-height:1.12;letter-spacing:-.03em}
+.d3{font-size:clamp(1.2rem,1.8vw,1.45rem);font-weight:750}
+.lede{font-size:clamp(1rem,1.25vw,1.12rem);color:var(--ink-2);max-width:62ch;line-height:1.6}
+
+/* No-JS / crawler copy of the page: shown only if the app hasn't started after a moment. */
+.ssr{opacity:0;animation:ssrIn .01s 1.4s forwards;max-width:900px;margin:0 auto;padding:24px 16px;font-size:16px}
+.ssr nav a{margin-right:12px;display:inline-block}
+.ssr header{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:20px}
+.ssr h1{margin:16px 0}
+.ssr li{margin:6px 0}
+@keyframes ssrIn{to{opacity:1}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .ssr{opacity:1;animation:none}
+}
